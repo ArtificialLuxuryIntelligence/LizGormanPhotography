@@ -1,0 +1,21 @@
+.gallery {
+  .galleryGrid {
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: dense; //this might mess up the lightbox order
+
+    .gatsbyImage {
+      margin: 0.5em;
+    }
+  }
+}
+
+.lightbox {
+  // display: none;
+}
+
+.proj1 {
+}
