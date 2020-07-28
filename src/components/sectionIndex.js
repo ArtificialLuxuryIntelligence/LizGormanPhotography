@@ -5,10 +5,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const SectionIndex = ({ data, section }) => {
-  console.log("DATA", data)
-  console.log("SECTION", section)
+  // console.log("DATA", data)
+  // console.log("SECTION", section)
   const covers = data.allFile.edges.map(edge => edge.node)
-  console.log("covers", covers)
+  // console.log("covers", covers)
   return (
     <Layout>
       <SEO title="Home" />
@@ -17,7 +17,7 @@ const SectionIndex = ({ data, section }) => {
       {data.allMarkdownRemark.edges
         .filter(o => o.node.frontmatter.section == section)
         .map(({ node }) => {
-          console.log(node.frontmatter)
+          // console.log(node.frontmatter)
           return (
             <div style={{ maxWidth: 300 }}>
               <Link to={"/" + node.frontmatter.slug}>

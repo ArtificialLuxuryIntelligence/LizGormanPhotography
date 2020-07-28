@@ -1,0 +1,140 @@
+$transition-duration: 0.8s;
+
+.pageContainer {
+  height: 100vh;
+}
+
+.fullPageContainer {
+  pointer-events: none;
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+
+  .logo {
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+    width: 500px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    text-transform: uppercase;
+    h1 {
+      width: inherit;
+      position: absolute;
+      padding: 0;
+      // margin: 0.2rem;
+      transition: $transition-duration ease;
+    }
+    :nth-child(1) {
+      font-size: 1em;
+      // display: none;
+      transform: translateY(-0.5em);
+    }
+    :nth-child(2) {
+      opacity: 0;
+      font-size: 1em;
+    }
+    :nth-child(3) {
+      font-size: 1em;
+      transform: translateY(0.5em);
+    }
+
+    &.active {
+      :nth-child(1) {
+        font-size: 1em;
+        transform: translateY(-1.3em);
+      }
+      :nth-child(2) {
+        transform: scale(1.4);
+        opacity: 1;
+      }
+      :nth-child(3) {
+        font-size: 1em;
+        transform: translateY(1.3em);
+      }
+    }
+  }
+}
+.linkContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  a {
+    transition: $transition-duration ease-in-out;
+    width: 100%;
+    height: 100%;
+    .gatsbyImage {
+      transition: $transition-duration ease-in-out;
+      height: 100%;
+
+      filter: brightness(0.2);
+      // z-index: -1;
+    }
+  }
+  .linkActive {
+    width: 300%;
+    .gatsbyImage {
+      filter: brightness(1);
+      // animation: develop 1s forwards;
+
+      // transform: scale(1.2);
+    }
+  }
+}
+
+.leftTab,
+.rightTab {
+  font-size: 1.4rem;
+  color: white;
+  position: absolute;
+  z-index: 3;
+  transition: $transition-duration ease;
+  opacity: 0;
+  bottom: 0.5rem;
+  // left:100px;
+}
+.leftTab {
+  writing-mode: vertical-rl;
+  left: 10px;
+}
+
+.rightTab {
+  writing-mode: vertical-lr;
+  right: 10px;
+}
+
+.tabActive {
+  opacity: 0.4;
+}
+
+@keyframes develop {
+  0% {
+    filter: brightness(10) invert(40%);
+  }
+  100% {
+    filter: brightness(1) invert(0%);
+  }
+}
+
+// .animated {
+//   font-size: 4rem;
+// }
+
+// .slidingContent {
+//   background-color: red;
+//   pointer-events: none;
+//   position: absolute;
+//   width: 100vw;
+//   height: 100vh;
+//   top: 0;
+//   left: 0;
+//   z-index: 3;
+// }

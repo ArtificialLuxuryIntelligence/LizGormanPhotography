@@ -38,8 +38,8 @@ export default function Gallery({ data }) {
     return subGalleries
   }
   let subGalleries = splitSubGalleries()
-  console.log("SGALLLLLS", subGalleries)
-  console.log(data)
+  // console.log("SGALLLLLS", subGalleries)
+  // console.log(data)
 
   return (
     <Layout>
@@ -56,7 +56,7 @@ export default function Gallery({ data }) {
               <h2>{frontmatter.subtitles[i]}</h2>
               <div className={galleryStyles.galleryGrid}>
                 {subGallery.map((src, j) => {
-                  console.log(src)
+                  // console.log(src)
                   return (
                     <div
                       key={(i, j)}
