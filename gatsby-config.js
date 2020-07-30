@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Grid grid gallery`,
-    description: "Some tests to make sure I don't mess this up too badly",
+    title: `Liz Gorman Photography`,
+    description: "Liz Gorman photography portfolio",
     author: `ADGK`,
   },
   plugins: [
