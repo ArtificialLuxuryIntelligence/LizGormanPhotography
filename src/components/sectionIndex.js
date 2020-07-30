@@ -3,6 +3,7 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import styles from "./sectionIndex.module.scss"
 
 const SectionIndex = ({ data, section }) => {
   // console.log("DATA", data)
@@ -12,30 +13,30 @@ const SectionIndex = ({ data, section }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h2>Welcome to a section page</h2>
-
-      {data.allMarkdownRemark.edges
-        .filter(o => o.node.frontmatter.section == section)
-        .map(({ node }) => {
-          // console.log(node.frontmatter)
-          return (
-            <div style={{ maxWidth: 300 }}>
+      <div className={styles.navGrid}>
+        {data.allMarkdownRemark.edges
+          .filter(o => o.node.frontmatter.section == section)
+          .map(({ node }) => {
+            // console.log(node.frontmatter)
+            return (
               <Link to={"/" + node.frontmatter.slug}>
-                {node.frontmatter.slug}
                 <Img
-                  // imgStyle={{
-                  //   objectFit: "cover",
-                  // }}
+                  imgStyle={{
+                    // objectFit: "contain",
+                    // objectPosition: "left",
+                  }}
+                  className={styles.gatsbyImage}
                   fluid={
                     covers.filter(
                       i => i.name == [node.frontmatter.cover.split(".")[0]]
                     )[0].childImageSharp.fluid
                   }
                 />
+                <h2>{node.frontmatter.title}</h2>
               </Link>
-            </div>
-          )
-        })}
+            )
+          })}
+      </div>
     </Layout>
   )
 }
@@ -55,6 +56,7 @@ export default function MySectionIndex(props) {
                   slug
                   cover
                   section
+                  title
                 }
               }
             }

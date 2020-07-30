@@ -21,7 +21,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-transition-link`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        data: `@import "${__dirname}/src/styles/utils.scss";`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

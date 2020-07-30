@@ -1,0 +1,12 @@
+//for utilities available to all scss files etc - (imported in gatsby-config.js [`gatsby-plugin-sass`])
+//styles not packaged unless used in other scss files - use global.scss for global styles
+
+//  --------------------------------------------------
+//  Variables
+//  --------------------------------------------------
+
+$light-black: rgb(17, 17, 17);
+
+//  --------------------------------------------------
+//  Mixins
+//  --------------------------------------------------
