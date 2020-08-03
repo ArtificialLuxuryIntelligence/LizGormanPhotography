@@ -35,8 +35,6 @@ exports.createPages = async ({ graphql, actions }) => {
       node.frontmatter.slug !== "art-about" &&
       node.frontmatter.slug !== "commercial-about"
     ) {
-      console.log("NOOOOOOOOOOOOOOOOODE", node.frontmatter.slug)
-
       createPage({
         path: node.frontmatter.slug,
         component: path.resolve(`./src/templates/gallery.js`),
@@ -46,8 +44,6 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     } else {
-      console.log("CHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOODE", node)
-
       createPage({
         path: node.frontmatter.slug,
         component: path.resolve(`./src/templates/about.js`),

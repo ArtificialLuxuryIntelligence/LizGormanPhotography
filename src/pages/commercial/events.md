@@ -1,8 +1,8 @@
 ---
 title: Events
-subtitles: []
+subtitles: ["Galleries", "Performance"]
 slug: events
-folder: events
+folder: EVENTS
 cover: events.jpg
 section: commercial
 ---

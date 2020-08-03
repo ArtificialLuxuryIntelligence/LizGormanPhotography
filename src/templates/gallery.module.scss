@@ -17,7 +17,7 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: auto;
     grid-gap: 1rem;
-    // grid-auto-flow: dense; //this might mess up the lightbox order
+    grid-auto-flow: dense; //this might mess up the lightbox order
 
     .gatsbyImage {
       // margin: 0.5em;
