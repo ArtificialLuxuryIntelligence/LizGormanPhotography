@@ -7,9 +7,9 @@ const Header = ({ section }) => {
   const other = section === "commercial" ? "art" : "commercial"
   return (
     <header className={styles.header}>
-      <h1 style={{ margin: 0 }}>
+      <h1>
         <Link to="/" className={styles.logo}>
-          <span>Liz Gorman Photography</span>
+          <span>Liz Gorman</span> <span>Photography</span>{" "}
         </Link>
       </h1>
       <nav>
@@ -22,6 +22,9 @@ const Header = ({ section }) => {
           </li>
           <li>
             <Link to={`/${other}`}>{other}</Link>
+          </li>
+          <li>
+            <Link to="/">instagram</Link>
           </li>
         </ul>
       </nav>
