@@ -53,9 +53,9 @@ export default function Gallery({ data }) {
               className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
             >
               <h2>{frontmatter.subtitles[i]}</h2>
+
               <div className={galleryStyles.galleryGrid}>
                 {subGallery.map((src, j) => {
-                  // console.log(src)
                   return (
                     <div
                       key={(i, j)}

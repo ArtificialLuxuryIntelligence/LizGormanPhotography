@@ -1,38 +1,41 @@
-.navGrid {
-  //   background-color: #777;
-  padding: 2rem 0;
-  display: grid;
-  grid-auto-rows: 350px;
-  grid-template-columns: repeat(auto-fit, minmax(1fr, 300px));
-  grid-gap: 1rem;
+.navGridContainer {
+  .navGrid {
+    margin: 0 auto;
+    //   background-color: #777;
+    padding: 2rem 0;
+    display: grid;
+    // grid-auto-rows: 350px;
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 300px));
+    grid-gap: 1rem;
 
-  a {
-    padding: 1rem 1rem 0 1rem;
-    display: flex;
-    flex-direction: column;
-    // border: 1px solid rgb(107, 107, 107);
-    border-radius: 5px;
-
-    // .gatsbyImage {
-    //   height: 87%;
-    //   width: 100%;
-    //   // object-fit: cover;
-    // }
-    .captionContainer {
-      height: 13%;
+    a {
+      padding: 1rem 1rem 0 1rem;
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      h2 {
-        text-transform: uppercase;
-        color: $light-black;
-        // color: rgb(214, 214, 214);
+      flex-direction: column;
+      // border: 1px solid rgb(107, 107, 107);
+      border-radius: 5px;
 
-        font-weight: 00;
-        font-size: 1.1em;
-        text-align: center;
-        //   padding: 2rem 0 0 0;
+      // .gatsbyImage {
+      //   height: 87%;
+      //   width: 100%;
+      //   // object-fit: cover;
+      // }
+      .captionContainer {
+        // height: 13%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          text-transform: uppercase;
+          color: $light-black;
+          // color: rgb(214, 214, 214);
+
+          font-weight: 00;
+          font-size: 1.1em;
+          text-align: center;
+          //   padding: 2rem 0 0 0;
+        }
       }
     }
   }
@@ -40,6 +43,14 @@
 
 @media (min-width: 800px) {
   .navGrid {
+    max-width: 60%;
+
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-auto-rows: 200px;
+    a {
+      .captionContainer {
+        border-bottom: 1px solid grey;
+      }
+    }
   }
 }

@@ -14,7 +14,7 @@
     display: grid;
     height: auto;
     width: auto;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: auto;
     grid-gap: 1rem;
     // grid-auto-flow: dense; //this might mess up the lightbox order
