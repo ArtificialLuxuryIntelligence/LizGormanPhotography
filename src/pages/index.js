@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
         <Link
           to="/art/"
           className={lActive ? indexStyles.linkActive : ""}
-          onMouseEnter={() => setLActive(true)}
+          onMouseOver={() => setLActive(true)}
           onMouseLeave={() => setLActive(false)}
           // onTouchEnd={() => {
           //   setLActive(true)
@@ -80,7 +80,7 @@ const IndexPage = ({ data }) => {
         <Link
           to="/commercial/"
           className={rActive ? indexStyles.linkActive : ""}
-          onMouseEnter={() => setRActive(true)}
+          onMouseOver={() => setRActive(true)}
           onMouseLeave={() => setRActive(false)}
           // onTouchEnd={() => {
           //   setRActive(true)

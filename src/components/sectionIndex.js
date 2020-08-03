@@ -21,10 +21,12 @@ const SectionIndex = ({ data, section }) => {
             return (
               <Link to={"/" + node.frontmatter.slug}>
                 <Img
-                  imgStyle={{
-                    // objectFit: "contain",
-                    // objectPosition: "left",
-                  }}
+                  imgStyle={
+                    {
+                      // objectFit: "contain",
+                      // objectPosition: "left",
+                    }
+                  }
                   className={styles.gatsbyImage}
                   fluid={
                     covers.filter(
@@ -32,7 +34,10 @@ const SectionIndex = ({ data, section }) => {
                     )[0].childImageSharp.fluid
                   }
                 />
-                <h2>{node.frontmatter.title}</h2>
+
+                <div className={styles.captionContainer}>
+                  <h2>{node.frontmatter.title}</h2>
+                </div>
               </Link>
             )
           })}

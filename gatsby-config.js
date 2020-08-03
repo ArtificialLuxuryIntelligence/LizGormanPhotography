@@ -20,11 +20,23 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
+
     `gatsby-plugin-transition-link`,
     {
       resolve: "gatsby-plugin-sass",
       options: {
         data: `@import "${__dirname}/src/styles/utils.scss";`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Jost`,
+            variants: [`200`, `300`, `400`, `500`, `600`],
+          },
+        ],
       },
     },
     `gatsby-transformer-sharp`,
@@ -42,12 +54,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/images`,
-      },
-    },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -1,1 +1,12 @@
-// for global styles etc - (imported in gatsby-browser.js)
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Jost", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
