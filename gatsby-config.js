@@ -20,25 +20,40 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
-
-    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-google-fonts-v2`, //works with variable fonts
+      options: {
+        fonts: [
+          {
+            family: "Jost",
+            weights: ["100", "200", "300", "400", "500", "600", "700"],
+            // variable: true,
+          },
+          // {
+          //   family: "Roboto",
+          //   variants: ["100", "200", "300", "400", "500", "600", "700"],
+          // },
+          // {
+          //   family: "Nanum Gothic",
+          //   variants: ["100", "200", "300", "400", "500", "600", "700"],
+          // },
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-sass",
       options: {
         data: `@import "${__dirname}/src/styles/utils.scss";`,
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Jost`,
-            variants: [`200`, `300`, `400`, `500`, `600`],
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-web-font-loader",
+    //   options: {
+    //     google: {
+    //       families: ["Jost:200,300,400,500"],
+    //     },
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -54,7 +69,6 @@ module.exports = {
         ],
       },
     },
-
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -63,7 +77,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        // display: `minimal-ui`,
         // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },

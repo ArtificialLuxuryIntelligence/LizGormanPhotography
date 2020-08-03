@@ -7,9 +7,7 @@ const Header = () => (
   <header className={styles.header}>
     <h1 style={{ margin: 0 }}>
       <Link to="/" className={styles.logo}>
-        <span>
-        Liz Gorman Photography
-        </span>
+        <span>Liz Gorman Photography</span>
       </Link>
     </h1>
     <nav>
@@ -18,7 +16,7 @@ const Header = () => (
           <Link to="/art">projects</Link>
         </li>
         <li>
-          <Link to="/">about</Link>
+          <Link to="/about">about</Link>
         </li>{" "}
         <li>
           <Link to="/commercial">{true && "commercial"}</Link>
