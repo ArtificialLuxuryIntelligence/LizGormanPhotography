@@ -31,13 +31,30 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: path.resolve(`./src/templates/gallery.js`),
-      context: {
-        slug: node.frontmatter.slug,
-        folderRegEx: `/${node.frontmatter.folder}/`,
-      },
-    })
+    if (
+      node.frontmatter.slug !== "art-about" &&
+      node.frontmatter.slug !== "commercial-about"
+    ) {
+      console.log("NOOOOOOOOOOOOOOOOODE", node.frontmatter.slug)
+
+      createPage({
+        path: node.frontmatter.slug,
+        component: path.resolve(`./src/templates/gallery.js`),
+        context: {
+          slug: node.frontmatter.slug,
+          folderRegEx: `/${node.frontmatter.folder}/`,
+        },
+      })
+    } else {
+      console.log("CHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOODE", node)
+
+      createPage({
+        path: node.frontmatter.slug,
+        component: path.resolve(`./src/templates/about.js`),
+        context: {
+          slug: node.frontmatter.slug,
+        },
+      })
+    }
   })
 }

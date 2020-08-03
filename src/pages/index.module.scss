@@ -18,6 +18,7 @@ $transition-duration: 0.8s;
   .logo {
     // pointer-events: auto;
     font-size: 2rem;
+    letter-spacing: 0.1em;
     line-height: 1;
     text-align: center;
     position: relative;
@@ -74,27 +75,26 @@ $transition-duration: 0.8s;
 
 .leftTab,
 .rightTab {
+  margin: 0;
   font-size: 1.4rem;
   color: white;
   position: absolute;
   z-index: 3;
   transition: $transition-duration ease;
   opacity: 0;
-  bottom: 0.5rem;
-  // left:100px;
 }
 .leftTab {
   opacity: 0.4;
   writing-mode: vertical-rl;
-  top: 10px;
-  left: 10px;
+  top: 1rem;
+  left: 1rem;
 }
 
 .rightTab {
   opacity: 0.4;
   writing-mode: vertical-lr;
-  bottom: 10px;
-  right: 10px;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 @keyframes develop {
@@ -148,17 +148,37 @@ $transition-duration: 0.8s;
   .rightTab,
   .leftTab {
     opacity: 0;
+    margin: 0;
+    bottom: 2rem;
   }
+
   .leftTab {
-    left: 10px;
     top: auto;
-    bottom: 10px;
+    left: 0.8rem;
   }
   .rightTab {
-    bottom: 10px;
-    right: 10px;
+    right: 0.8rem;
   }
   .tabActive {
     opacity: 0.4;
+  }
+}
+
+@media (hover: none) {
+  .linkContainer {
+    .gatsbyImage {
+      // display: none;
+      filter: brightness(0.5) !important;
+      // animation: develop 1s forwards;
+
+      // transform: scale(1.2);
+    }
+  }
+
+  .rightTab,
+  .leftTab {
+    opacity: 1;
+    margin: 0;
+    bottom: 2rem;
   }
 }

@@ -42,16 +42,15 @@ export default function Gallery({ data }) {
   // console.log(data)
 
   return (
-    <Layout>
-      <div>
+    <Layout section={frontmatter.section}>
+      {/* seo page here */}
+      <div className={`${galleryStyles.gallery}`}>
         <h1>{frontmatter.title}</h1>
         {subGalleries.map((subGallery, i) => {
           return (
             <div
               key={i}
-              className={`${galleryStyles.gallery} ${
-                galleryStyles[frontmatter.subtitles[i]]
-              }`}
+              className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
             >
               <h2>{frontmatter.subtitles[i]}</h2>
               <div className={galleryStyles.galleryGrid}>
@@ -134,7 +133,7 @@ export const query = graphql`
           relativeDirectory
           publicURL
           childImageSharp {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -146,6 +145,7 @@ export const query = graphql`
       frontmatter {
         title
         subtitles
+        section
       }
       html
     }

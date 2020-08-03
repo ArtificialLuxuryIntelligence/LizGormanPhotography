@@ -29,14 +29,6 @@ module.exports = {
             weights: ["100", "200", "300", "400", "500", "600", "700"],
             // variable: true,
           },
-          // {
-          //   family: "Roboto",
-          //   variants: ["100", "200", "300", "400", "500", "600", "700"],
-          // },
-          // {
-          //   family: "Nanum Gothic",
-          //   variants: ["100", "200", "300", "400", "500", "600", "700"],
-          // },
         ],
       },
     },
@@ -46,14 +38,6 @@ module.exports = {
         data: `@import "${__dirname}/src/styles/utils.scss";`,
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-web-font-loader",
-    //   options: {
-    //     google: {
-    //       families: ["Jost:200,300,400,500"],
-    //     },
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

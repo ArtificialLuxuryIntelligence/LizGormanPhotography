@@ -11,7 +11,7 @@ const SectionIndex = ({ data, section }) => {
   const covers = data.allFile.edges.map(edge => edge.node)
   // console.log("covers", covers)
   return (
-    <Layout>
+    <Layout section={section}>
       <SEO title="Home" />
       <div className={styles.navGrid}>
         {data.allMarkdownRemark.edges
@@ -71,7 +71,7 @@ export default function MySectionIndex(props) {
               node {
                 name
                 childImageSharp {
-                  fluid(maxWidth: 300) {
+                  fluid(maxWidth: 1200) {
                     ...GatsbyImageSharpFluid
                   }
                 }
