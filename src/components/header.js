@@ -24,7 +24,7 @@ const Header = ({ section }) => {
             <Link to={`/${other}`}>{other}</Link>
           </li>
           <li>
-            <Link to="/">instagram</Link>
+            <Link to="/instagram">instagram</Link>
           </li>
         </ul>
       </nav>
