@@ -7,9 +7,10 @@ import styles from "./sectionIndex.module.scss"
 
 const SectionIndex = ({ data, section }) => {
   const covers = data.allFile.edges.map(edge => edge.node)
+  const title = section.charAt(0).toUpperCase() + section.slice(1) //capitalize section name
   return (
     <Layout section={section}>
-      <SEO title="Home" />
+      <SEO title={title} />
       <div className={styles.navGridContainer}>
         <div className={styles.navGrid}>
           {data.allMarkdownRemark.edges
