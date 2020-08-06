@@ -4,10 +4,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout section="insta">
+    {/* section 'insta' renders a 'neutral' nav - i.e. neither in art/commercial part of site */}
     <SEO title="404: Not found" />
     <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <p>Nothing to see here.</p>
   </Layout>
 )
 
