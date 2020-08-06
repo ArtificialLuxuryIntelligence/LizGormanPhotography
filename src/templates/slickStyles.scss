@@ -1,0 +1,74 @@
+/* this is in a separate file because I think that css modules wasn't letting me access the slick classes.. not entirely sure */
+
+$thumb-height: 100px;
+$thumb-width: 100px;
+$thumb-top-margin: 20px;
+
+@media (min-width: 800px) {
+  .slick-container {
+    margin: 0 auto;
+    height: 80vh;
+    width: 800px;
+    /* display: flex; */
+    /* border: 1px solid red; */
+    .slick-slide {
+      height: 80vh;
+    }
+
+    .slick-slide img {
+      height: 80vh;
+    }
+
+    .gatsby-image-wrapper {
+      height: 80vh;
+    }
+  }
+  .slick-nav-container {
+    margin: 0 auto;
+
+    height: 10vh;
+
+    width: 800px;
+    .slick-slide {
+      height: 10vh;
+    }
+  
+    .slick-slide img {
+      height: 10vh;
+    }
+  
+    .gatsby-image-wrapper {
+      height: 10vh;
+    }
+  
+  }
+
+  .slick-slide {
+    height: 80vh;
+  }
+
+  .slick-slide img {
+    height: 80vh;
+  }
+
+  .gatsby-image-wrapper {
+    height: 80vh;
+  }
+
+  /* Thumbnails */
+
+  // .slick-thumb {
+  //   bottom: calc(-#{$thumb-top-margin} - #{$thumb-height});
+  // }
+  // .slick-dots li {
+  //   width: $thumb-width;
+  //   /* height: 40px; */
+  //   height: $thumb-height;
+  //   // margin: 0 $thumb-top-margin;
+  //   background-color: black;
+  // }
+
+  // .slick-thumb-image {
+  //   height: $thumb-height;
+  // }
+}

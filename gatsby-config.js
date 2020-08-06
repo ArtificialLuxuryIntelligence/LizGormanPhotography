@@ -32,6 +32,13 @@ module.exports = {
         ],
       },
     },
+    // {
+    //   resolve: `gatsby-source-instagram-all`,
+    //   options: {
+    //     access_token:
+    //       "EAAFH4ikhURABAKYiVKJB6bsLSNguuwjPc3qUsKZBfuTZBUhC4pMNLL2VKBplpoFrZAn1UqUZAnNyP0chj5wkMtddGLpnJhwRtXALPjwRMrPINHuIAsCHaf4QkO0CrIkcWZAjjFhIizUflDZBirdqURyYahvnnZBdCoCYD4xyiGY2wZDZD",
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-sass",
       options: {

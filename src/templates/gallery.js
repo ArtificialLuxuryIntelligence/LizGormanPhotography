@@ -1,13 +1,16 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Lightbox from "react-image-lightbox"
-import "react-image-lightbox/style.css"
+
+// import Lightbox from "react-image-lightbox"
+// import "react-image-lightbox/style.css"
 import Img from "gatsby-image"
 import galleryStyles from "./gallery.module.scss"
+// import "./slickStyles.scss"
+import SlickAndThumbs from "../components/SlickAndThumbs"
 
 export default function Gallery({ data }) {
-  const [lightBoxOpen, setLightBoxOpen] = useState(false)
+  // const [lightBoxOpen, setLightBoxOpen] = useState(false)
   const [photoIndex, setPhotoIndex] = useState([0, 1])
   const { markdownRemark, allFile } = data
   const { frontmatter, html } = markdownRemark
@@ -22,6 +25,7 @@ export default function Gallery({ data }) {
       if (edge.node.relativeDirectory.split("/")[2] === currentPath) {
         subGalleries[currentSubGallery].push({
           fluid: edge.node.childImageSharp.fluid,
+          // fixed: edge.node.childImageSharp.fixed,
           publicURL: edge.node.publicURL,
         })
       } else {
@@ -30,6 +34,7 @@ export default function Gallery({ data }) {
         subGalleries.push([])
         subGalleries[currentSubGallery].push({
           fluid: edge.node.childImageSharp.fluid,
+          // fixed: edge.node.childImageSharp.fixed,
           publicURL: edge.node.publicURL,
         })
       }
@@ -37,85 +42,127 @@ export default function Gallery({ data }) {
     })
     return subGalleries
   }
-  let subGalleries = splitSubGalleries()
-  // console.log("SGALLLLLS", subGalleries)
-  // console.log(data)
+  const subGalleries = splitSubGalleries()
+  console.log(subGalleries)
 
   return (
     <Layout section={frontmatter.section}>
       {/* seo page here */}
       <div className={`${galleryStyles.gallery}`}>
         <h1>{frontmatter.title}</h1>
-        {subGalleries.map((subGallery, i) => {
-          return (
-            <div
-              key={i}
-              className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
-            >
-              <h2>{frontmatter.subtitles[i]}</h2>
 
-              <div className={galleryStyles.galleryGrid}>
-                {subGallery.map((src, j) => {
-                  return (
-                    <div
-                      key={(i, j)}
-                      onClick={() => {
-                        setPhotoIndex([i, j])
-                        setLightBoxOpen(true)
-                      }}
-                    >
-                      <Img
-                        className={galleryStyles.gatsbyImage}
-                        imgStyle={{
-                          objectFit: "cover",
-                        }}
-                        fluid={src.fluid}
-                      />
-                    </div>
-                  )
-                })}
+        <div className={galleryStyles.carouselView}>
+          {subGalleries.map((subGallery, i) => {
+            return (
+              <div
+                key={i}
+                className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
+              >
+                <h2>{frontmatter.subtitles[i]}</h2>
+
+                <SlickAndThumbs>
+                  {subGallery.map((src, j) => {
+                    return (
+                      <div key={(i, j)}>
+                        <Img
+                          className={galleryStyles.gatsbyImage}
+                          imgStyle={{
+                            objectFit: "contain",
+                          }}
+                          fluid={src.fluid}
+                        />
+                      </div>
+                    )
+                  })}
+                </SlickAndThumbs>
               </div>
+            )
+          })}
+        </div>
+        <div className={galleryStyles.gridView}>
+          {subGalleries.map((subGallery, i) => {
+            return (
+              <div
+                key={i}
+                className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
+              >
+                <h2>{frontmatter.subtitles[i]}</h2>
 
-              {lightBoxOpen && (
-                <Lightbox
-                  className={galleryStyles.lightbox}
-                  mainSrc={subGalleries[photoIndex[0]][photoIndex[1]].publicURL}
-                  nextSrc={
-                    subGalleries[photoIndex[0]][
-                      (photoIndex[1] + 1) % subGalleries[photoIndex[0]].length
-                    ].publicURL
-                  }
-                  prevSrc={
-                    subGalleries[photoIndex[0]][
-                      (photoIndex[1] + subGalleries[photoIndex[0]].length - 1) %
-                        subGalleries[photoIndex[0]].length
-                    ].publicURL
-                  }
-                  onMovePrevRequest={() =>
-                    setPhotoIndex([
-                      photoIndex[0],
-                      (photoIndex[1] + subGalleries[photoIndex[0]].length - 1) %
-                        subGalleries[photoIndex[0]].length,
-                    ])
-                  }
-                  onMoveNextRequest={() =>
-                    setPhotoIndex([
-                      photoIndex[0],
-                      (photoIndex[1] + 1) % subGalleries[photoIndex[0]].length,
-                    ])
-                  }
-                  onCloseRequest={() => setLightBoxOpen(false)}
-                  imagePadding={50}
-                  enableZoom={false}
-                  reactModalStyle={{
-                    content: {},
-                    overlay: {},
-                  }}
-                />
-              )}
-            </div>
-          )
-        })}
+                <div className="slick-container">
+                  <div className={galleryStyles.galleryGrid}>
+                    {/* <Slider {...settings}> */}
+                    {subGallery.map((src, j) => {
+                      return (
+                        <div
+                          key={(i, j)}
+                          // onClick={() => {
+                          //   setPhotoIndex([i, j])
+                          //   setLightBoxOpen(true)
+                          // }}
+                          // style={{ height: "100%", width: "100%" }}
+                        >
+                          <Img
+                            className={galleryStyles.gatsbyImage}
+                            imgStyle={{
+                              objectFit: "contain",
+                            }}
+                            fluid={src.fluid}
+                          />
+                        </div>
+                      )
+                    })}
+                    {/* </Slider> */}
+                  </div>
+                </div>
+
+                {/* {lightBoxOpen && (
+                  <Lightbox
+                    className={galleryStyles.lightbox}
+                    mainSrc={
+                      subGalleries[photoIndex[0]][photoIndex[1]].publicURL
+                    }
+                    nextSrc={
+                      subGalleries[photoIndex[0]][
+                        (photoIndex[1] + 1) % subGalleries[photoIndex[0]].length
+                      ].publicURL
+                    }
+                    prevSrc={
+                      subGalleries[photoIndex[0]][
+                        (photoIndex[1] +
+                          subGalleries[photoIndex[0]].length -
+                          1) %
+                          subGalleries[photoIndex[0]].length
+                      ].publicURL
+                    }
+                    onMovePrevRequest={() =>
+                      setPhotoIndex([
+                        photoIndex[0],
+                        (photoIndex[1] +
+                          subGalleries[photoIndex[0]].length -
+                          1) %
+                          subGalleries[photoIndex[0]].length,
+                      ])
+                    }
+                    onMoveNextRequest={() =>
+                      setPhotoIndex([
+                        photoIndex[0],
+                        (photoIndex[1] + 1) %
+                          subGalleries[photoIndex[0]].length,
+                      ])
+                    }
+                    onCloseRequest={() => setLightBoxOpen(false)}
+                    imagePadding={50}
+                    enableZoom={false}
+                    reactModalStyle={{
+                      content: {},
+                      overlay: {},
+                    }}
+                  />
+                )} */}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </Layout>
   )
@@ -133,7 +180,7 @@ export const query = graphql`
           relativeDirectory
           publicURL
           childImageSharp {
-            fluid(maxWidth: 1200) {
+            fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -18,6 +18,8 @@
     "gatsby-plugin-transition-link": "^1.20.2",
     "gatsby-remark-images": "^3.3.20",
     "gatsby-source-filesystem": "^2.3.14",
+    "gatsby-source-instagram": "^0.8.0",
+    "gatsby-source-instagram-all": "^2.0.5",
     "gatsby-transformer-remark": "^2.8.26",
     "gatsby-transformer-sharp": "^2.5.7",
     "gsap": "^3.4.2",
@@ -29,7 +31,9 @@
     "react-helmet": "^6.1.0",
     "react-image-lightbox": "^5.1.1",
     "react-pose": "^4.0.10",
-    "react-spring": "^8.0.27"
+    "react-slick": "^0.27.3",
+    "react-spring": "^8.0.27",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const instagram = () => (
-  <Layout>
+  <Layout section={"insta"}>
     <SEO title="instagram" />
     <h1>Instagram</h1>
     <p>insta posts</p>

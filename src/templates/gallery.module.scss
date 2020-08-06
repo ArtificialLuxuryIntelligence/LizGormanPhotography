@@ -1,43 +1,42 @@
+// see slickStyles.css for slick carousel styling
+
+.gridView {
+  display: block;
+}
+.carouselView {
+  display: none;
+}
+
 .gallery {
   h1 {
     font-size: 1.8rem;
     text-transform: uppercase;
-
     margin: 0;
   }
   h2 {
     text-transform: uppercase;
-
     margin-top: 2rem;
   }
   .galleryGrid {
     display: grid;
     height: auto;
     width: auto;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height: 100%;
+    width: 100%;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
+
     grid-template-rows: auto;
     grid-gap: 1rem;
-    grid-auto-flow: dense; //this might mess up the lightbox order
-
-    .gatsbyImage {
-      // margin: 0.5em;
-    }
+    // grid-auto-flow: dense; //this might mess up the lightbox order
   }
 }
-
-.lightbox {
-  // display: none;
-}
-
-.proj1 {
-}
-
 
 @media (min-width: 800px) {
-.gallery{
-  .galleryGrid{
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-
+  .gridView {
+    display: none;
   }
-}
+  .carouselView {
+    display: block;
+  }
 }

@@ -13,20 +13,35 @@ const Header = ({ section }) => {
         </Link>
       </h1>
       <nav>
-        <ul>
-          <li>
-            <Link to={`/${section}`}>projects</Link>
-          </li>
-          <li>
-            <Link to={`/${section}-about`}>about</Link>
-          </li>
-          <li>
-            <Link to={`/${other}`}>{other}</Link>
-          </li>
-          <li>
-            <Link to="/instagram">instagram</Link>
-          </li>
-        </ul>
+        {section === "insta" ? (
+          <ul>
+            <li>
+              <Link to="/art">art</Link>
+            </li>
+            <li>
+              <Link to="/commercial">commercial</Link>
+            </li>
+
+            <li>
+              <Link to="/instagram">instagram</Link>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <Link to={`/${section}`}>projects</Link>
+            </li>
+            <li>
+              <Link to={`/${section}-about`}>about</Link>
+            </li>
+            <li>
+              <Link to={`/${other}`}>{other}</Link>
+            </li>
+            <li>
+              <Link to="/instagram">instagram</Link>
+            </li>
+          </ul>
+        )}
       </nav>
     </header>
   )

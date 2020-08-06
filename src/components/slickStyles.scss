@@ -1,0 +1,56 @@
+/* this is in a separate file because I think that css modules wasn't letting me access the slick classes.. not entirely sure */
+$slideshow-height: 80vh;
+$thumb-height: 10vh;
+$thumb-top-margin: 20px;
+
+@media (min-width: 800px) {
+  .slick-container {
+    margin: 0 auto;
+    height: $slideshow-height;
+    width: 800px;
+
+    .slick-slide img {
+      height: $slideshow-height;
+    }
+    .gatsby-image-wrapper {
+      height: $slideshow-height;
+    }
+    .slick-arrow {
+      &::before {
+        color: $light-black;
+      }
+      &:focus,
+      &:hover {
+        &::before {
+          color: $light-black;
+        }
+      }
+    }
+  }
+  .slick-nav-container {
+    margin: $thumb-top-margin auto 0 auto;
+    height: $thumb-height;
+    width: 400px;
+    .slick-slide {
+      height: $thumb-height;
+    }
+    .slick-slide img {
+      height: $thumb-height;
+    }
+    .gatsby-image-wrapper {
+      height: $thumb-height;
+    }
+  }
+
+  .slick-slide {
+    height: 80vh;
+  }
+
+  .slick-slide img {
+    height: 80vh;
+  }
+
+  .gatsby-image-wrapper {
+    height: 80vh;
+  }
+}
