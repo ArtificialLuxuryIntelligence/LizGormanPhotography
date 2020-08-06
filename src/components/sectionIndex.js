@@ -14,6 +14,7 @@ const SectionIndex = ({ data, section }) => {
         <div className={styles.navGrid}>
           {data.allMarkdownRemark.edges
             .filter(o => o.node.frontmatter.section == section)
+            .sort((a, b) => b.node.frontmatter.order - a.node.frontmatter.order)
             .map(({ node }) => {
               // console.log(node.frontmatter)
               return (
@@ -61,6 +62,7 @@ export default function MySectionIndex(props) {
                   cover
                   section
                   title
+                  order
                 }
               }
             }

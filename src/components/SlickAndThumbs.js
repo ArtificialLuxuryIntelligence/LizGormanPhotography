@@ -20,7 +20,7 @@ export default class SlickAndThumbs extends Component {
 
   render() {
     const settings = {
-      //   fade: true,
+      fade: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -32,7 +32,7 @@ export default class SlickAndThumbs extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: Math.min(5, this.props.children.length),
-    //   slidesToShow: 4,
+      //   slidesToShow: 4,
       slidesToScroll: 3,
       focusOnSelect: true,
     }
