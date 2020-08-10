@@ -9,17 +9,16 @@ import styles from "./instagram.module.scss"
 function Instagram() {
   const data = useStaticQuery(graphql`
     query {
-      allInstaNode(limit: 24) {
+      allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 48) {
         nodes {
           id
           username
-          caption
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 600, maxHeight: 600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          mediaType
+          timestamp
+          thumbnails {
+            src
+            config_width
+            config_height
           }
         }
       }
@@ -30,19 +29,35 @@ function Instagram() {
   return (
     <Layout section={"insta"}>
       <SEO title="Instagram" />
-      {/* <h1>Instagram</h1> */}
+      <h1>@lizmakesphotos</h1>
       <div className={styles.gridContainer}>
         {data.allInstaNode.nodes.map(node => {
           console.log(node)
           return (
-            <Img
-              imgStyle={{
-                objectFit: "cover",
-              }}
-              fluid={node.localFile.childImageSharp.fluid}
-            />
+            // <Img
+            //   imgStyle={{
+            //     objectFit: "cover",
+            //   }}
+            //   fluid={node.localFile.childImageSharp.fluid}
+            // />
+            // <img src={node.preview} />
+
+            <div>
+              <a href={`https://www.instagram.com/p/${node.id}`}>
+                <img
+                  src={
+                    node.thumbnails.filter(o => o.config_width === 480)[0].src
+                  }
+                />
+              </a>
+            </div>
           )
         })}
+      </div>
+      <div class={styles.bottomLink}>
+        <a href="https://www.instagram.com/lizmakesphotos">
+          See more @lizmakesphotos
+        </a>
       </div>
     </Layout>
   )
