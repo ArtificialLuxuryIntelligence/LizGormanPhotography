@@ -1,0 +1,21 @@
+.gridContainer {
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-auto-rows: 1fr;
+
+  grid-gap: 1rem;
+
+  div::before {
+    content: "";
+    padding-bottom: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+@media (min-width: 800px) {
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+}

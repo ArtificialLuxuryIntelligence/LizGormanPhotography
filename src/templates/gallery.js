@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
@@ -11,7 +11,7 @@ import SlickAndThumbs from "../components/SlickAndThumbs"
 
 export default function Gallery({ data }) {
   // const [lightBoxOpen, setLightBoxOpen] = useState(false)
-  const [photoIndex, setPhotoIndex] = useState([0, 1])
+  // const [photoIndex, setPhotoIndex] = useState([0, 1])
   const { markdownRemark, allFile } = data
   const { frontmatter, html } = markdownRemark
 
