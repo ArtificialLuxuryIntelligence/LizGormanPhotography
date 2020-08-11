@@ -1,6 +1,6 @@
 /* this is in a separate file because I think that css modules wasn't letting me access the slick classes.. not entirely sure */
 $slideshow-height: 80vh;
-$thumb-height: 10vh;
+$thumb-height: 14vh;
 $thumb-top-margin: 20px;
 
 @media (min-width: 800px) {
@@ -33,8 +33,12 @@ $thumb-top-margin: 20px;
     width: 400px;
     .slick-slide {
       height: $thumb-height;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .slick-slide img {
+      padding: 0.2rem;
       height: $thumb-height;
     }
     .gatsby-image-wrapper {

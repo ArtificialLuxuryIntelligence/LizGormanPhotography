@@ -30,7 +30,6 @@ function Instagram() {
     <Layout section={"insta"}>
       <SEO title="Instagram" />
       <h1>
-        {" "}
         <a href="https://www.instagram.com/lizmakesphotos" target="_blank">
           @lizmakesphotos
         </a>
