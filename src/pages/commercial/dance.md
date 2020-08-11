@@ -8,4 +8,3 @@ order: 1
 
 ---
 
-Description goes here

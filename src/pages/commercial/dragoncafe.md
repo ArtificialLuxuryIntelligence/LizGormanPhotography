@@ -7,4 +7,3 @@ section: commercial
 order: 2
 ---
 
-Description goes here
