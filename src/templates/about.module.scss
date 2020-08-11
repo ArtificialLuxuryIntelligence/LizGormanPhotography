@@ -7,7 +7,7 @@
   h2,
   div {
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 100%;
   }
   div {
     font-size: 1rem;
@@ -19,13 +19,33 @@
   h2,
   form {
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 100%;
   }
   form {
     textarea {
-      width: 700px;
-      max-width: 700px;
+      width: 100%;
+      max-width: 100%;
       min-height: 5rem;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .textContainer {
+    h2,
+    div {
+      max-width: 700px;
+    }
+  }
+  .formContainer {
+    h2,
+    form {
+      max-width: 700px;
+    }
+    form {
+      textarea {
+        max-width: 700px;
+      }
     }
   }
 }

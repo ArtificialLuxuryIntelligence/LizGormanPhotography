@@ -31,7 +31,9 @@ function Instagram() {
       <SEO title="Instagram" />
       <h1>
         {" "}
-        <a href="https://www.instagram.com/lizmakesphotos">@lizmakesphotos</a>
+        <a href="https://www.instagram.com/lizmakesphotos" target="_blank">
+          @lizmakesphotos
+        </a>
       </h1>
       <div className={styles.gridContainer}>
         {data.allInstaNode.nodes.map(node => {
@@ -46,7 +48,10 @@ function Instagram() {
             // <img src={node.preview} />
 
             <div>
-              <a href={`https://www.instagram.com/p/${node.id}`}>
+              <a
+                href={`https://www.instagram.com/p/${node.id}`}
+                target="_blank"
+              >
                 <img
                   src={
                     node.thumbnails.filter(o => o.config_width === 480)[0].src
@@ -58,7 +63,7 @@ function Instagram() {
         })}
       </div>
       <div class={styles.bottomLink}>
-        <a href="https://www.instagram.com/lizmakesphotos">
+        <a href="https://www.instagram.com/lizmakesphotos" target="_blank">
           See more @lizmakesphotos
         </a>
       </div>
