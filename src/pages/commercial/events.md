@@ -1,6 +1,5 @@
 ---
 title: Events
-subtitles: ["Galleries", "Performance"]
 slug: events
 folder: EVENTS
 cover: events.jpg
@@ -9,4 +8,6 @@ order: 3
 
 ---
 
-Description goes here
+# Galleries
+
+# Performance

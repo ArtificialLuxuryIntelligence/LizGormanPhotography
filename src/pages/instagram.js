@@ -29,7 +29,10 @@ function Instagram() {
   return (
     <Layout section={"insta"}>
       <SEO title="Instagram" />
-      <h1>@lizmakesphotos</h1>
+      <h1>
+        {" "}
+        <a href="https://www.instagram.com/lizmakesphotos">@lizmakesphotos</a>
+      </h1>
       <div className={styles.gridContainer}>
         {data.allInstaNode.nodes.map(node => {
           console.log(node)

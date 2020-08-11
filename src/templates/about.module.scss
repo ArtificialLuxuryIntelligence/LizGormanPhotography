@@ -1,9 +1,31 @@
-.fonts {
-  p {
-    // display: none;
+//
+
+// .textContainer,
+// .formContainer {
+// }
+.textContainer {
+  h2,
+  div {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+  div {
+    font-size: 1rem;
   }
 }
 
-.weights {
-  font-weight: bold;
+.formContainer {
+  margin-top: 6rem;
+  h2,
+  form {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+  form {
+    textarea {
+      width: 700px;
+      max-width: 700px;
+      min-height: 5rem;
+    }
+  }
 }

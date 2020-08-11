@@ -1,23 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-
-// import Lightbox from "react-image-lightbox"
-// import "react-image-lightbox/style.css"
 import Img from "gatsby-image"
 import galleryStyles from "./gallery.module.scss"
-// import "./slickStyles.scss"
 import SlickAndThumbs from "../components/SlickAndThumbs"
+import SEO from "../components/seo"
 
 export default function Gallery({ data }) {
-  // const [lightBoxOpen, setLightBoxOpen] = useState(false)
-  // const [photoIndex, setPhotoIndex] = useState([0, 1])
   const { markdownRemark, allFile } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, html, headings } = markdownRemark
 
-  //function separate images from separate subfolders in gallery
+  // separate images from separate subfolders in gallery
   function splitSubGalleries() {
-    console.log("subtitles", frontmatter.subtitles)
     let subGalleries = []
     let currentPath = ""
     let currentSubGallery = -1
@@ -42,12 +36,31 @@ export default function Gallery({ data }) {
     })
     return subGalleries
   }
+  // returns array of descriptions (HTML) parsed from html generated from markdown
+  function getDescriptions(html) {
+    let descriptions = []
+    if (headings.length == 0) {
+      return [html]
+    }
+    let htmlSplit = html
+    for (let i = 0; i < headings.length; i++) {
+      htmlSplit = htmlSplit.split(`<h1>${headings[i].value}</h1>`)
+      let d = htmlSplit.shift()
+      htmlSplit = htmlSplit[0]
+      descriptions.push(d.trim())
+    }
+    descriptions.push(htmlSplit.trim())
+    descriptions.shift()
+    return descriptions
+  }
+
   const subGalleries = splitSubGalleries()
-  console.log(subGalleries)
+  const descriptions = getDescriptions(html)
+  const docHeadings = headings.length == 0 ? [{ value: "" }] : headings
 
   return (
     <Layout section={frontmatter.section}>
-      {/* seo page here */}
+      <SEO title={frontmatter.title} />
       <div className={`${galleryStyles.gallery}`}>
         <h1>{frontmatter.title}</h1>
 
@@ -56,9 +69,14 @@ export default function Gallery({ data }) {
             return (
               <div
                 key={i}
-                className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
+                className={` ${galleryStyles[docHeadings[i].value]}`}
               >
-                <h2>{frontmatter.subtitles[i]}</h2>
+                <h2>{docHeadings[i].value}</h2>
+
+                <div
+                  className={galleryStyles.descriptionCarousel}
+                  dangerouslySetInnerHTML={{ __html: descriptions[i] }}
+                />
 
                 <SlickAndThumbs>
                   {subGallery.map((src, j) => {
@@ -84,9 +102,14 @@ export default function Gallery({ data }) {
             return (
               <div
                 key={i}
-                className={` ${galleryStyles[frontmatter.subtitles[i]]}`}
+                className={` ${galleryStyles[docHeadings[i].value]}`}
               >
-                <h2>{frontmatter.subtitles[i]}</h2>
+                <h2>{docHeadings[i].value}</h2>
+
+                <div
+                  className={galleryStyles.descriptionGrid}
+                  dangerouslySetInnerHTML={{ __html: descriptions[i] }}
+                />
 
                 <div className="slick-container">
                   <div className={galleryStyles.galleryGrid}>
@@ -191,10 +214,12 @@ export const query = graphql`
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        subtitles
         section
       }
       html
+      headings {
+        value
+      }
     }
   }
 `
