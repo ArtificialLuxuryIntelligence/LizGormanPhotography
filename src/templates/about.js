@@ -1,16 +1,3 @@
-// import React from "react"
-// import Layout from "../components/layout"
-// import SEO from "../components/seo"
-// import styles from "./about.module.scss"
-
-// const About = ({ children, section }) => (
-//   <Layout section={section}>
-//     <SEO title="About" />
-//     <div>{children}</div>
-//   </Layout>
-// )
-// export default About
-
 import React from "react"
 import { navigate } from "gatsby-link"
 import Layout from "../components/layout"
@@ -28,8 +15,6 @@ function encode(data) {
 const About = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
-
-  //
   const [state, setState] = React.useState({})
 
   const handleChange = e => {

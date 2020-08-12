@@ -25,11 +25,7 @@ $transition-duration: 0.8s;
     width: 100%;
     height: 100px;
     margin-top: 50px;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    text-transform: uppercase;
+      text-transform: uppercase;
     h1 {
       width: inherit;
       position: absolute;
@@ -39,7 +35,6 @@ $transition-duration: 0.8s;
     }
     :nth-child(1) {
       font-size: 1em;
-      // display: none;
       transform: translateY(-0.5em);
     }
     :nth-child(2) {
