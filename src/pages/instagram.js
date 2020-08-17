@@ -9,7 +9,11 @@ import styles from "./instagram.module.scss"
 function Instagram() {
   const data = useStaticQuery(graphql`
     query {
-      allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 48) {
+      allInstaNode(
+        filter: { mediaType: { ne: "GraphVideo" } }
+        sort: { fields: timestamp, order: DESC }
+        limit: 36
+      ) {
         nodes {
           id
           username
