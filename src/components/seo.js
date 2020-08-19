@@ -11,10 +11,8 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 import favicon16 from "../images/favicon16.png"
-// import favicon32 from "../images/favicon32.png"
+import favicon32 from "../images/favicon32.png"
 // import favicon64 from "../images/favicon64.png"
-
-
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -81,12 +79,12 @@ function SEO({ description, lang, meta, title }) {
           sizes: "16x16",
           href: `${favicon16}`,
         },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "32x32",
-        //   href: `${favicon32}`,
-        // },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: `${favicon32}`,
+        },
         // { rel: "shortcut icon", type: "image/png", href: `${favicon64}` },
       ]}
     />

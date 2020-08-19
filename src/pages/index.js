@@ -10,15 +10,15 @@ const IndexPage = ({ data }) => {
   const [rActive, setRActive] = useState(false)
   const [isTouch, setIsTouch] = useState(false)
 
-  useEffect(() => {
-    if (
-      "ontouchstart" in document.documentElement &&
-      window.screen.width <= 1200
-    ) {
-      setIsTouch(true)
-      console.log("touch")
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (
+  //     "ontouchstart" in document.documentElement &&
+  //     window.screen.width <= 1200
+  //   ) {
+  //     setIsTouch(true)
+  //     console.log("touch")
+  //   }
+  // }, [])
 
   return (
     <div className={indexStyles.pageContainer}>
@@ -73,7 +73,7 @@ const IndexPage = ({ data }) => {
             imgStyle={{
               objectFit: "cover",
             }}
-            fluid={data.allFile.edges[1].node.childImageSharp.fluid}
+            fluid={data.allFile.edges[0].node.childImageSharp.fluid}
           />
         </Link>
 
@@ -92,7 +92,7 @@ const IndexPage = ({ data }) => {
             imgStyle={{
               objectFit: "cover",
             }}
-            fluid={data.allFile.edges[0].node.childImageSharp.fluid}
+            fluid={data.allFile.edges[1].node.childImageSharp.fluid}
           />
         </Link>
       </div>

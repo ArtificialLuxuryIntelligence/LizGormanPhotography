@@ -16,7 +16,7 @@ export default function Gallery({ data }) {
     let currentPath = ""
     let currentSubGallery = -1
     allFile.edges.forEach(edge => {
-      if (edge.node.relativeDirectory.split("/")[2] === currentPath) {
+      if (edge.node.relativeDirectory.split("/")[2] === currentPath) { //not ===
         subGalleries[currentSubGallery].push({
           fluid: edge.node.childImageSharp.fluid,
           // fixed: edge.node.childImageSharp.fixed,

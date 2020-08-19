@@ -33,7 +33,11 @@ function Instagram() {
     <Layout section={"insta"}>
       <SEO title="Instagram" />
       <h1>
-        <a href="https://www.instagram.com/lizmakesphotos" target="_blank">
+        <a
+          href="https://www.instagram.com/lizmakesphotos"
+          target="_blank"
+          rel="noreferrer"
+        >
           @lizmakesphotos
         </a>
       </h1>
@@ -45,6 +49,7 @@ function Instagram() {
               <a
                 href={`https://www.instagram.com/p/${node.id}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 <Img
                   imgStyle={{
@@ -58,7 +63,11 @@ function Instagram() {
         })}
       </div>
       <div class={styles.bottomLink}>
-        <a href="https://www.instagram.com/lizmakesphotos" target="_blank">
+        <a
+          href="https://www.instagram.com/lizmakesphotos"
+          target="_blank"
+          rel="noreferrer"
+        >
           See more @lizmakesphotos
         </a>
       </div>
