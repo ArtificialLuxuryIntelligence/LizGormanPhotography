@@ -14,7 +14,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: "https://stoic-hoover-055e90.netlify.app/*",
+    toPath: "https://www.lizgormanart.co.uk/:splat",
+    isPermanent: true,
+    force: true,
+  })
+
   const result = await graphql(`
     query {
       allMarkdownRemark {
@@ -29,17 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-
-  exports.createPages = ({ actions }) => {
-    const { createRedirect } = actions
-    createRedirect({
-      fromPath: "https://stoic-hoover-055e90.netlify.app/*",
-      toPath: "https://www.lizgormanart.co.uk/:splat",
-      isPermanent: true,
-      force: true,
-    })
-  }
-
+  
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     if (
       node.frontmatter.slug !== "art-about" &&
