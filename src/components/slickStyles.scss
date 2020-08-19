@@ -4,57 +4,59 @@ $thumb-height: 14vh;
 $thumb-top-margin: 20px;
 
 @media (min-width: 800px) {
-  .slick-container {
-    margin: 0 auto;
-    height: $slideshow-height;
-    width: 800px;
+  .slick-and-thumbs {
+    .slick-container {
+      margin: 0 auto;
+      height: $slideshow-height;
+      width: 800px;
 
-    .slick-slide img {
-      height: $slideshow-height;
-    }
-    .gatsby-image-wrapper {
-      height: $slideshow-height;
-    }
-    .slick-arrow {
-      &::before {
-        color: $light-black;
+      .slick-slide img {
+        height: $slideshow-height;
       }
-      &:focus,
-      &:hover {
+      .gatsby-image-wrapper {
+        height: $slideshow-height;
+      }
+      .slick-arrow {
         &::before {
           color: $light-black;
         }
+        &:focus,
+        &:hover {
+          &::before {
+            color: $light-black;
+          }
+        }
       }
     }
-  }
-  .slick-nav-container {
-    margin: $thumb-top-margin auto 0 auto;
-    height: $thumb-height;
-    width: 400px;
+    .slick-nav-container {
+      margin: $thumb-top-margin auto 0 auto;
+      height: $thumb-height;
+      width: 400px;
+      .slick-slide {
+        height: $thumb-height;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .slick-slide img {
+        padding: 0.2rem;
+        height: $thumb-height;
+      }
+      .gatsby-image-wrapper {
+        height: $thumb-height;
+      }
+    }
+
     .slick-slide {
-      height: $thumb-height;
-      &:hover {
-        cursor: pointer;
-      }
+      height: 80vh;
     }
+
     .slick-slide img {
-      padding: 0.2rem;
-      height: $thumb-height;
+      height: 80vh;
     }
+
     .gatsby-image-wrapper {
-      height: $thumb-height;
+      height: 80vh;
     }
-  }
-
-  .slick-slide {
-    height: 80vh;
-  }
-
-  .slick-slide img {
-    height: 80vh;
-  }
-
-  .gatsby-image-wrapper {
-    height: 80vh;
   }
 }

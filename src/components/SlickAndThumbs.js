@@ -37,7 +37,7 @@ export default class SlickAndThumbs extends Component {
       focusOnSelect: true,
     }
     return (
-      <div>
+      <div className="slick-and-thumbs">
         <div className="slick-container">
           <Slider
             asNavFor={this.state.nav2}

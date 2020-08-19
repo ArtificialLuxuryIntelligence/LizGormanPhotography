@@ -6,23 +6,22 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import styles from "./instagram.module.scss"
 
+//graphql filter video previews (?):   filter: { mediaType: { ne: "GraphVideo" } }
+
 function Instagram() {
   const data = useStaticQuery(graphql`
     query {
-      allInstaNode(
-        filter: { mediaType: { ne: "GraphVideo" } }
-        sort: { fields: timestamp, order: DESC }
-        limit: 36
-      ) {
+      allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 36) {
         nodes {
           id
-          username
           mediaType
           timestamp
-          thumbnails {
-            src
-            config_width
-            config_height
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 300, maxHeight: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
@@ -42,23 +41,16 @@ function Instagram() {
         {data.allInstaNode.nodes.map(node => {
           console.log(node)
           return (
-            // <Img
-            //   imgStyle={{
-            //     objectFit: "cover",
-            //   }}
-            //   fluid={node.localFile.childImageSharp.fluid}
-            // />
-            // <img src={node.preview} />
-
             <div>
               <a
                 href={`https://www.instagram.com/p/${node.id}`}
                 target="_blank"
               >
-                <img
-                  src={
-                    node.thumbnails.filter(o => o.config_width === 480)[0].src
-                  }
+                <Img
+                  imgStyle={{
+                    objectFit: "cover",
+                  }}
+                  fluid={node.localFile.childImageSharp.fluid}
                 />
               </a>
             </div>
