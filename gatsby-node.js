@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createRedirect({
     fromPath: "https://stoic-hoover-055e90.netlify.app/*",
-    toPath: "https://www.lizgormanart.co.uk/:splat",
+    toPath: "https://www.lizgormanphotography.co.uk/:splat",
     isPermanent: true,
     force: true,
   })
@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  
+
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     if (
       node.frontmatter.slug !== "art-about" &&
