@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
   //     setIsTouch(true)
   //     console.log("touch")
   //   }
-  // }, []) 
+  // }, [])
 
   return (
     <div className={indexStyles.pageContainer}>
@@ -35,8 +35,7 @@ const IndexPage = ({ data }) => {
           <h1>Photography</h1>
         </div>
       </div>
-      {/* guide tabs */}
-      {/* <div className={indexStyles.tabs}> */}
+
       <h2
         className={
           rActive
@@ -55,7 +54,6 @@ const IndexPage = ({ data }) => {
       >
         COMMERCIAL
       </h2>
-      {/* </div> */}
 
       <div className={`${indexStyles.linkContainer}`}>
         <Link
