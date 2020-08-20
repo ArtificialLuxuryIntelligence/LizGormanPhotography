@@ -5,6 +5,7 @@ module.exports = {
     author: `Liz Gorman`,
   },
   plugins: [
+    'gatsby-plugin-webpack-bundle-analyzer',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify`,
     {
@@ -33,7 +34,7 @@ module.exports = {
         fonts: [
           {
             family: "Jost",
-            weights: ["100", "200", "300", "400", "500", "600", "700"],
+            weights: ["300", "700"],
             // variable: true,
           },
         ],

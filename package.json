@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "Liz-Gorman-Photography-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A photography portfolio page",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "ADGK",
   "dependencies": {
     "gatsby": "^2.24.10",
     "gatsby-cli": "^2.12.62",
@@ -16,12 +16,12 @@
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-plugin-transition-link": "^1.20.2",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-remark-images": "^3.3.20",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-source-instagram": "0.8.0-beta.0",
     "gatsby-transformer-remark": "^2.8.26",
     "gatsby-transformer-sharp": "^2.5.7",
-    "gsap": "^3.4.2",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -39,7 +39,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "",
   "scripts": {
     "build": "gatsby build",
     "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
@@ -51,7 +51,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/ArtificialLuxuryIntelligence/LizGormanPhotography"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"

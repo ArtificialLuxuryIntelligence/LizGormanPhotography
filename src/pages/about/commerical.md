@@ -16,4 +16,4 @@ For a quote, please use the contact form below.
 > _“Liz is the first person I go to when I need a photographer for any of my projects, she has an excellent eye for photographing movement, and does a brilliant job at capturing the atmosphere of any event. Thanks Liz!”_
 
 > Helen Cox | choreographer |
-> <a href="http://www.helencoxdance.com/" target="_blank" rel="noreferrer"> http://www.helencoxdance.com </a>
+> <a href="http://www.helencoxdance.com/" target="_blank" rel="noreferrer"> www.helencoxdance.com </a>

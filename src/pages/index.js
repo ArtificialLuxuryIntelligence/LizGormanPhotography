@@ -8,7 +8,7 @@ import indexStyles from "./index.module.scss"
 const IndexPage = ({ data }) => {
   const [lActive, setLActive] = useState(false)
   const [rActive, setRActive] = useState(false)
-  const [isTouch, setIsTouch] = useState(false)
+  // const [isTouch, setIsTouch] = useState(false)
 
   // useEffect(() => {
   //   if (
@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
   //     setIsTouch(true)
   //     console.log("touch")
   //   }
-  // }, [])
+  // }, []) 
 
   return (
     <div className={indexStyles.pageContainer}>
