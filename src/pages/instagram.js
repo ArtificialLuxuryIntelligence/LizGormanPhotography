@@ -28,7 +28,6 @@ function Instagram() {
     }
   `)
 
-  console.log(data)
   return (
     <Layout section={"insta"}>
       <SEO title="Instagram" />
@@ -43,7 +42,6 @@ function Instagram() {
       </h1>
       <div className={styles.gridContainer}>
         {data.allInstaNode.nodes.map(node => {
-          console.log(node)
           return (
             <div>
               <a
