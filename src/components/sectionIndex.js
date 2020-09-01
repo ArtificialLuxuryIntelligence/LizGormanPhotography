@@ -16,10 +16,10 @@ const SectionIndex = ({ data, section }) => {
           {data.allMarkdownRemark.edges
             .filter(o => o.node.frontmatter.section == section)
             .sort((a, b) => b.node.frontmatter.order - a.node.frontmatter.order)
-            .map(({ node }) => {
+            .map(({ node }, i) => {
               // console.log(node.frontmatter)
               return (
-                <Link to={"/" + node.frontmatter.slug}>
+                <Link key={i} to={"/" + node.frontmatter.slug}>
                   <Img
                     imgStyle={
                       {

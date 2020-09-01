@@ -5,7 +5,7 @@ $transition-duration: 0.8s;
   width: 100vw;
 }
 
-.fullPageContainer {
+.logoContainer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,7 +17,6 @@ $transition-duration: 0.8s;
   z-index: 3;
 
   .logo {
-    // pointer-events: auto;
     font-size: 2rem;
     letter-spacing: 0.1em;
     line-height: 1;
@@ -32,7 +31,6 @@ $transition-duration: 0.8s;
       padding: 0;
       // margin: 0.2rem;
       transition: 0.6s ease;
-      // vertical-align: top;
     }
     :nth-child(1) {
       font-size: 1em;
@@ -62,7 +60,6 @@ $transition-duration: 0.8s;
       transition: $transition-duration ease-in-out;
       height: 100%;
       filter: brightness(0.2);
-      // z-index: -1;
     }
   }
 }
@@ -91,17 +88,8 @@ $transition-duration: 0.8s;
   right: 1rem;
 }
 
-// @keyframes develop {
-//   0% {
-//     filter: brightness(10) invert(40%);
-//   }
-//   100% {
-//     filter: brightness(1) invert(0%);
-//   }
-// }
-
 @media (min-width: 800px) {
-  .fullPageContainer {
+  .logoContainer {
     .logo {
       margin-top: 50px;
       width: 40vw;
@@ -138,9 +126,6 @@ $transition-duration: 0.8s;
       width: 300%;
       .gatsbyImage {
         filter: brightness(1);
-        // animation: develop 1s forwards;
-
-        // transform: scale(1.2);
       }
     }
   }
@@ -167,11 +152,7 @@ $transition-duration: 0.8s;
 @media (hover: none) {
   .linkContainer {
     .gatsbyImage {
-      // display: none;
-      filter: brightness(0.5) !important;
-      // animation: develop 1s forwards;
-
-      // transform: scale(1.2);
+      filter: brightness(0.5) !important;     
     }
   }
 

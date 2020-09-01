@@ -16,7 +16,7 @@ export default function Gallery({ data }) {
     let currentPath = ""
     let currentSubGallery = -1
     allFile.edges.forEach(edge => {
-      if (edge.node.relativeDirectory.split("/")[2] === currentPath) { //not ===
+      if (edge.node.relativeDirectory.split("/")[2] === currentPath) {
         subGalleries[currentSubGallery].push({
           fluid: edge.node.childImageSharp.fluid,
           // fixed: edge.node.childImageSharp.fixed,
@@ -32,14 +32,13 @@ export default function Gallery({ data }) {
           publicURL: edge.node.publicURL,
         })
       }
-      // console.log(edge.node.relativeDirectory.split("/")[1])
     })
     return subGalleries
   }
   // returns array of descriptions (HTML) parsed from html generated from markdown
   function getDescriptions(html) {
     let descriptions = []
-    if (headings.length == 0) {
+    if (headings.length === 0) {
       return [html]
     }
     let htmlSplit = html
@@ -56,7 +55,7 @@ export default function Gallery({ data }) {
 
   const subGalleries = splitSubGalleries()
   const descriptions = getDescriptions(html)
-  const docHeadings = headings.length == 0 ? [{ value: "" }] : headings
+  const docHeadings = headings.length === 0 ? [{ value: "" }] : headings
 
   return (
     <Layout section={frontmatter.section}>
@@ -64,15 +63,12 @@ export default function Gallery({ data }) {
       <div className={`${galleryStyles.gallery}`}>
         <h1>{frontmatter.title}</h1>
 
+        {/* larger screen */}
         <div className={galleryStyles.carouselView}>
           {subGalleries.map((subGallery, i) => {
             return (
-              <div
-                key={i}
-                className={` ${galleryStyles[docHeadings[i].value]}`}
-              >
+              <div key={i}>
                 <h2>{docHeadings[i].value}</h2>
-
                 <div
                   className={galleryStyles.descriptionCarousel}
                   dangerouslySetInnerHTML={{ __html: descriptions[i] }}
@@ -97,13 +93,11 @@ export default function Gallery({ data }) {
             )
           })}
         </div>
+        {/* mobile view */}
         <div className={galleryStyles.gridView}>
           {subGalleries.map((subGallery, i) => {
             return (
-              <div
-                key={i}
-                className={` ${galleryStyles[docHeadings[i].value]}`}
-              >
+              <div key={i}>
                 <h2>{docHeadings[i].value}</h2>
 
                 <div
@@ -111,19 +105,11 @@ export default function Gallery({ data }) {
                   dangerouslySetInnerHTML={{ __html: descriptions[i] }}
                 />
 
-                <div className="slick-container">
+                <div>
                   <div className={galleryStyles.galleryGrid}>
-                    {/* <Slider {...settings}> */}
                     {subGallery.map((src, j) => {
                       return (
-                        <div
-                          key={(i, j)}
-                          // onClick={() => {
-                          //   setPhotoIndex([i, j])
-                          //   setLightBoxOpen(true)
-                          // }}
-                          // style={{ height: "100%", width: "100%" }}
-                        >
+                        <div key={(i, j)}>
                           <Img
                             className={galleryStyles.gatsbyImage}
                             imgStyle={{
@@ -134,54 +120,8 @@ export default function Gallery({ data }) {
                         </div>
                       )
                     })}
-                    {/* </Slider> */}
                   </div>
                 </div>
-
-                {/* {lightBoxOpen && (
-                  <Lightbox
-                    className={galleryStyles.lightbox}
-                    mainSrc={
-                      subGalleries[photoIndex[0]][photoIndex[1]].publicURL
-                    }
-                    nextSrc={
-                      subGalleries[photoIndex[0]][
-                        (photoIndex[1] + 1) % subGalleries[photoIndex[0]].length
-                      ].publicURL
-                    }
-                    prevSrc={
-                      subGalleries[photoIndex[0]][
-                        (photoIndex[1] +
-                          subGalleries[photoIndex[0]].length -
-                          1) %
-                          subGalleries[photoIndex[0]].length
-                      ].publicURL
-                    }
-                    onMovePrevRequest={() =>
-                      setPhotoIndex([
-                        photoIndex[0],
-                        (photoIndex[1] +
-                          subGalleries[photoIndex[0]].length -
-                          1) %
-                          subGalleries[photoIndex[0]].length,
-                      ])
-                    }
-                    onMoveNextRequest={() =>
-                      setPhotoIndex([
-                        photoIndex[0],
-                        (photoIndex[1] + 1) %
-                          subGalleries[photoIndex[0]].length,
-                      ])
-                    }
-                    onCloseRequest={() => setLightBoxOpen(false)}
-                    imagePadding={50}
-                    enableZoom={false}
-                    reactModalStyle={{
-                      content: {},
-                      overlay: {},
-                    }}
-                  />
-                )} */}
               </div>
             )
           })}

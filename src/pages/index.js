@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
@@ -8,23 +8,12 @@ import indexStyles from "./index.module.scss"
 const IndexPage = ({ data }) => {
   const [lActive, setLActive] = useState(false)
   const [rActive, setRActive] = useState(false)
-  // const [isTouch, setIsTouch] = useState(false)
-
-  // useEffect(() => {
-  //   if (
-  //     "ontouchstart" in document.documentElement &&
-  //     window.screen.width <= 1200
-  //   ) {
-  //     setIsTouch(true)
-  //     console.log("touch")
-  //   }
-  // }, [])
 
   return (
     <div className={indexStyles.pageContainer}>
       <SEO title="Home" />
-      <div className={indexStyles.fullPageContainer}>
-        {/* logo */}
+      {/* logo (name) container */}
+      <div className={indexStyles.logoContainer}>
         <div
           className={`${indexStyles.logo} ${
             lActive || rActive ? indexStyles.active : ""
@@ -35,26 +24,7 @@ const IndexPage = ({ data }) => {
           <h1>Photography</h1>
         </div>
       </div>
-
-      <h2
-        className={
-          rActive
-            ? `${indexStyles.tabActive} ${indexStyles.leftTab}`
-            : indexStyles.leftTab
-        }
-      >
-        ART
-      </h2>
-      <h2
-        className={
-          lActive
-            ? `${indexStyles.tabActive} ${indexStyles.rightTab}`
-            : indexStyles.rightTab
-        }
-      >
-        COMMERCIAL
-      </h2>
-
+      {/* link image containers */}
       <div className={`${indexStyles.linkContainer}`}>
         <Link
           to="/art/"
@@ -94,6 +64,25 @@ const IndexPage = ({ data }) => {
           />
         </Link>
       </div>
+      {/* tabs */}
+      <h2
+        className={
+          rActive
+            ? `${indexStyles.tabActive} ${indexStyles.leftTab}`
+            : indexStyles.leftTab
+        }
+      >
+        ART
+      </h2>
+      <h2
+        className={
+          lActive
+            ? `${indexStyles.tabActive} ${indexStyles.rightTab}`
+            : indexStyles.rightTab
+        }
+      >
+        COMMERCIAL
+      </h2>
     </div>
   )
 }
@@ -104,7 +93,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 1200) {
+            fluid(maxWidth: 800) {
               ...GatsbyImageSharpFluid
             }
           }
