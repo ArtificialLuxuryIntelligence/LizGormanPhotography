@@ -48,6 +48,7 @@
           padding: 0.6em;
           text-transform: uppercase;
           letter-spacing: 0.1em;
+          display: inline-block;
         }
         &:nth-of-type(1) {
           border-left: none;
@@ -74,7 +75,6 @@
       ul {
         li {
           font-size: 0.6em;
-
           border-left: 1px solid $light-black;
           a {
             margin: 0 0.3em;
@@ -103,6 +103,18 @@
           a {
             margin: 0 0.6em;
             padding: 0;
+            &::after {
+              content: "";
+              display: block;
+              margin-top: 0.1em;
+              width: 0;
+              height: 1px;
+              background: $light-black;
+              transition: width 0.4s;
+            }
+            &:hover::after {
+              width: 100%;
+            }
           }
         }
       }
