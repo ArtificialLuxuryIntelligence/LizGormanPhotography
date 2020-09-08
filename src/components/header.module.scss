@@ -109,7 +109,7 @@
               margin-top: 0.1em;
               width: 0;
               height: 1px;
-              background: $light-black;
+              background: rgba($color: $light-black, $alpha: 0.4);
               transition: width 0.4s;
             }
             &:hover::after {
