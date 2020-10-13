@@ -16,16 +16,6 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children, section }) => {
-  //   const data = useStaticQuery(graphql`
-  //     query SiteTitleQuery {
-  //       site {
-  //         siteMetadata {
-  //           title
-  //         }
-  //       }
-  //     }
-  //   `)
-
   return (
     <div className={layoutStyles.layout}>
       <Header section={section} />

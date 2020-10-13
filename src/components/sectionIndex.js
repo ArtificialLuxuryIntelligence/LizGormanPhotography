@@ -14,23 +14,17 @@ const SectionIndex = ({ data, section }) => {
       <div className={styles.navGridContainer}>
         <div className={styles.navGrid}>
           {data.allMarkdownRemark.edges
-            .filter(o => o.node.frontmatter.section == section)
+
+            .filter(o => o.node.frontmatter.section == section) //eslint-disable-line
             .sort((a, b) => b.node.frontmatter.order - a.node.frontmatter.order)
             .map(({ node }, i) => {
-              // console.log(node.frontmatter)
               return (
                 <Link key={i} to={"/" + node.frontmatter.slug}>
                   <Img
-                    imgStyle={
-                      {
-                        // objectFit: "contain",
-                        // objectPosition: "left",
-                      }
-                    }
                     className={styles.gatsbyImage}
                     fluid={
                       covers.filter(
-                        i => i.name == [node.frontmatter.cover.split(".")[0]]
+                        i => i.name == [node.frontmatter.cover.split(".")[0]] //eslint-disable-line
                       )[0].childImageSharp.fluid
                     }
                   />
