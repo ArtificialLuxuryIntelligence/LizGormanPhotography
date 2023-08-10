@@ -21,10 +21,6 @@ const Header = ({ section }) => {
             <li>
               <Link to="/commercial">commercial</Link>
             </li>
-
-            <li>
-              <Link to="/instagram">instagram</Link>
-            </li>
           </ul>
         ) : (
           <ul>
@@ -36,9 +32,6 @@ const Header = ({ section }) => {
             </li>
             <li>
               <Link to={`/${other}`}>{other}</Link>
-            </li>
-            <li>
-              <Link to="/instagram">instagram</Link>
             </li>
           </ul>
         )}

@@ -23,12 +23,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `1780143228`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-fonts-v2`, //works with variable fonts
       options: {
         fonts: [
