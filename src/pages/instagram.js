@@ -42,8 +42,11 @@ function Instagram() {
       </h1>
       <div className={styles.gridContainer}>
         {data.allInstaNode.nodes.map(node => {
+          if (!node.localFile) {
+            return
+          }
           return (
-            <div>
+            <div key={node.id}>
               <a
                 href={`https://www.instagram.com/p/${node.id}`}
                 target="_blank"
@@ -60,7 +63,7 @@ function Instagram() {
           )
         })}
       </div>
-      <div class={styles.bottomLink}>
+      <div className={styles.bottomLink}>
         <a
           href="https://www.instagram.com/lizmakesphotos"
           target="_blank"
